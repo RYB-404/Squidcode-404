@@ -73,17 +73,35 @@ export function HeroSection({ onStartBuilding, onTryDemo }: HeroSectionProps) {
           </div>
 
           <div className="relative">
-            <div className="rounded-[2rem] border border-white/14 bg-[#0b1020]/75 p-4 backdrop-blur-xl">
-              <div className="rounded-[1.5rem] border border-white/10 bg-[#080b16] p-5">
+            <div className="dashboard-float rounded-[2rem] border border-white/14 bg-[#0b1020]/75 p-4 shadow-2xl shadow-black/30 backdrop-blur-xl">
+              <div className="dashboard-card relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#080b16] p-5">
                 <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
                   <div>
                     <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#3cffd0]">Live build board</p>
                     <h3 className="mt-1 text-2xl font-black text-white">0G Vibe Coding Tournament</h3>
                   </div>
-                  <div className="rounded-2xl bg-[#3cffd0] px-4 py-3 text-center text-black">
+                  <div className="fit-score rounded-2xl bg-[#3cffd0] px-4 py-3 text-center text-black">
                     <p className="font-mono text-[10px] font-black uppercase tracking-widest">Fit</p>
                     <p className="text-3xl font-black leading-none">94</p>
                   </div>
+                </div>
+
+                <div className="mb-5 grid gap-3">
+                  {[
+                    ["Problem clarity", "92%", "w-[92%]"],
+                    ["Build feasibility", "84%", "w-[84%]"],
+                    ["0G relevance", "96%", "w-[96%]"],
+                  ].map(([label, value, width], index) => (
+                    <div key={label} className="space-y-2" style={{ animationDelay: `${index * 120}ms` }}>
+                      <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.16em] text-white/55">
+                        <span>{label}</span>
+                        <span className="text-[#3cffd0]">{value}</span>
+                      </div>
+                      <div className="h-1.5 overflow-hidden rounded-full bg-white/10">
+                        <div className={`progress-fill h-full rounded-full bg-[#3cffd0] ${width}`} />
+                      </div>
+                    </div>
+                  ))}
                 </div>
 
                 <div className="grid gap-3 sm:grid-cols-2">
@@ -94,10 +112,17 @@ export function HeroSection({ onStartBuilding, onTryDemo }: HeroSectionProps) {
                 </div>
 
                 <div className="mt-5 rounded-3xl border border-[#3cffd0]/20 bg-[#3cffd0]/8 p-4">
-                  <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#3cffd0]">Generated outputs</p>
+                  <div className="flex items-center justify-between gap-4">
+                    <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#3cffd0]">Generated outputs</p>
+                    <div className="flex gap-1.5" aria-hidden="true">
+                      <span className="status-dot" />
+                      <span className="status-dot" />
+                      <span className="status-dot" />
+                    </div>
+                  </div>
                   <div className="mt-3 flex flex-wrap gap-2">
-                    {outputs.map((output) => (
-                      <span key={output} className="rounded-full bg-white/8 px-3 py-1.5 text-xs font-semibold text-white/75">
+                    {outputs.map((output, index) => (
+                      <span key={output} className="output-chip rounded-full bg-white/8 px-3 py-1.5 text-xs font-semibold text-white/75" style={{ animationDelay: `${index * 90}ms` }}>
                         {output}
                       </span>
                     ))}
