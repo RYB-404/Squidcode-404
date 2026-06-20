@@ -181,7 +181,7 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t-2 border-foreground/6 mt-20">
+      <footer className="border-t border-white/10 bg-[#050814]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
@@ -192,9 +192,9 @@ export default function Home() {
                 Squid<span className="text-cyan">Code</span>
               </span>
             </div>
-            <p className="text-xs text-foreground/35 text-center sm:text-right leading-relaxed">
+            <p className="text-xs text-white/45 text-center sm:text-right leading-relaxed">
               Turn one idea into every branch you need to build and submit.<br />
-              <span className="text-foreground/25">MVP with mock AI. No real API integration yet.</span>
+              <span className="text-white/32">MVP with mock AI. No real API integration yet.</span>
             </p>
           </div>
         </div>

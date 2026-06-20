@@ -25,7 +25,7 @@ interface SquidNavProps {
 
 export function SquidNav({ currentStep, onNavigate, completedSteps }: SquidNavProps) {
   return (
-    <nav className="sticky top-0 z-50 bg-background/90 backdrop-blur-xl border-b-2 border-foreground/8">
+    <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#050814]/92 backdrop-blur-xl">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Logo row */}
         <div className="flex items-center justify-between h-16">
@@ -39,7 +39,7 @@ export function SquidNav({ currentStep, onNavigate, completedSteps }: SquidNavPr
               </div>
               <Sparkles className="h-2.5 w-2.5 text-coral absolute -top-0.5 -right-0.5" />
             </div>
-            <span className="font-extrabold text-lg tracking-tight text-foreground">
+            <span className="font-extrabold text-lg tracking-tight text-white">
               Squid<span className="text-cyan">Code</span>
             </span>
           </button>
@@ -58,10 +58,10 @@ export function SquidNav({ currentStep, onNavigate, completedSteps }: SquidNavPr
                     onClick={() => onNavigate(step)}
                     className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ${
                       isActive
-                        ? "bg-foreground text-background"
+                        ? "bg-[#3cffd0] text-black"
                         : isDone
                         ? "text-cyan hover:bg-cyan/10"
-                        : "text-foreground/40 hover:text-foreground/60 hover:bg-foreground/5"
+                        : "text-white/62 hover:bg-white/8 hover:text-white"
                     }`}
                   >
                     {isDone && !isActive && <Check className="h-3 w-3" />}
